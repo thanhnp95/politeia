@@ -2547,13 +2547,6 @@ func (p *Politeiawww) processProposalBilledState(pbd cms.ProposalBillingDetails)
 
 	totalSpent := int64(0)
 	for _, dbInv := range propInvoices {
-		u, err := p.db.UserGetByPubKey(dbInv.PublicKey)
-		if err != nil {
-			log.Errorf("getUserByPubKey: token:%v "+
-				"pubKey:%v err:%v", dbInv.PublicKey, err)
-		} else {
-			dbInv.Username = u.Username
-		}
 		// Get payout for proposal
 		payout, err := calculatePayout(dbInv)
 		if err != nil {

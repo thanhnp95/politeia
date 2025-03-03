@@ -1011,7 +1011,7 @@ func (p *Politeiawww) getProposalBilledState(w http.ResponseWriter, r *http.Requ
 	var pbd cms.ProposalBillingDetails
 	decoder := json.NewDecoder(r.Body)
 	if err := decoder.Decode(&pbd); err != nil {
-		RespondWithError(w, r, 0, "HandleRecords: unmarshal",
+		RespondWithError(w, r, 0, "getProposalBilledState: unmarshal",
 			www.UserError{
 				ErrorCode: www.ErrorStatusInvalidInput,
 			})
