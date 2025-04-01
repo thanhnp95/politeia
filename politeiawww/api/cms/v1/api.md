@@ -1962,7 +1962,7 @@ Reply:
 
 ### `Proposal Billed State`
 
-Retrieve proposal's publicly available payment information
+Retrieve proposal's publicly available payment information.
 
 This retrieves the token of proposal that needs to get the payment data and 
 uses that token to search through the database for invoices that have line-items 
