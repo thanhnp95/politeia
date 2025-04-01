@@ -2541,12 +2541,10 @@ func (p *Politeiawww) processProposalBilledState(pbd cms.ProposalBillingDetails)
 	if err != nil {
 		return nil, err
 	}
-	reply := &cms.RecordBilledStateReply{
-		PaidInvoices: make([]cms.PublicPaidInvoiceRecord, 0),
-	}
 
-	totalSpent := int64(0)
-	for _, dbInv := range propInvoices {
+	var totalSpent int64
+	paidInvoices := make([]cms.PublicPaidInvoiceRecord, len(propInvoices))
+	for i, dbInv := range propInvoices {
 		// Get payout for proposal
 		payout, err := calculatePayout(dbInv)
 		if err != nil {
@@ -2557,9 +2555,11 @@ func (p *Politeiawww) processProposalBilledState(pbd cms.ProposalBillingDetails)
 			Timestamp: dbInv.Timestamp,
 			Total:     int64(payout.Total),
 		}
-		reply.PaidInvoices = append(reply.PaidInvoices, paidInv)
+		paidInvoices[i] = paidInv
 	}
 
-	reply.TotalBilled = totalSpent
-	return reply, nil
+	return &cms.RecordBilledStateReply{
+		PaidInvoices: paidInvoices,
+		TotalBilled: totalSpent,
+	}, nil
 }
