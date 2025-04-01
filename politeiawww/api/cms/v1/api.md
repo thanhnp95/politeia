@@ -1973,6 +1973,8 @@ Note: This call is public.
 
 **Route:** `GET /v1/proposals/billedstate`
 
+**Params:**
+
 | Parameter | Type | Description | Required |
 |-|-|-|-|
 | token | string | Token for approved proposal. | Yes |
