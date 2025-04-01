@@ -1021,7 +1021,7 @@ func (p *Politeiawww) getProposalBilledState(w http.ResponseWriter, r *http.Requ
 	pbs, err := p.processProposalBilledState(pbd)
 	if err != nil {
 		RespondWithError(w, r, 0,
-			"getProposalBilledState: processProposalBilledState %v", err)
+			"getProposalBilledState: processProposalBilledState: %v", err)
 		return
 	}
 
