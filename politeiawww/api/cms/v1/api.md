@@ -1964,10 +1964,10 @@ Reply:
 
 Retrieve proposal's publicly available payment information.
 
-This retrieves the token of proposal that needs to get the payment data and 
+This retrieves the proposal token that is needed to get the payment data and 
 uses that token to search through the database for invoices that have line-items 
-containing the proposal token. Calculates and return only two pieces of 
-information: amount paid and payment time in the invoices
+containing the proposal token. Calculates and returns only two pieces of 
+information: amount paid and payment time.
 
 Note: This call is public.
 
